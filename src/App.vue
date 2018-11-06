@@ -1,5 +1,6 @@
 <template>
-  <div id="app">
+  <div :class="{ 'night': nightTheme }" id="app">
+    <button @click="nightTheme = !nightTheme">toggle theme</button>
     <img alt="Vue logo" src="./assets/logo.png">
     <HelloWorld msg="Welcome to Your Vue.js App"/>
   </div>
@@ -12,6 +13,12 @@ export default {
   name: 'app',
   components: {
     HelloWorld
+  },
+
+  data() {
+    return {
+      nightTheme: false
+    }
   }
 }
 </script>
