@@ -7286,10 +7286,10 @@ stream-shift@^1.0.0:
   resolved "https://registry.yarnpkg.com/stream-shift/-/stream-shift-1.0.0.tgz#d5c752825e5367e786f78e18e445ea223a155952"
   integrity sha1-1cdSgl5TZ+eG944Y5EXqIjoVWVI=
 
-streamlabs-beaker@^0.1.0:
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/streamlabs-beaker/-/streamlabs-beaker-0.1.0.tgz#44a9aac05edf035fe0db166b8d7584aa5c9afe39"
-  integrity sha512-Yym+S2fOzi6P2IvwCyxCIcXWhM4iuE7oOJaGxcYAhQhaH/NnLxNJyav6D3PNzW2bUkNjdg1XAjL0m/YZrfRzuw==
+streamlabs-beaker@^0.1.9:
+  version "0.1.9"
+  resolved "https://registry.yarnpkg.com/streamlabs-beaker/-/streamlabs-beaker-0.1.9.tgz#e06022e68bd4dd7bd998ef7266511db24d2c35e4"
+  integrity sha512-EayIVgk3Eyik296N3M+TMihowmmcFYLJuickv789aN/8TNsbRsrisN/X0BTJC71n/gozdgcs1CHJP5I+EZRRbA==
   dependencies:
     v-tooltip "^2.0.0-rc.33"
     vue "^2.5.17"

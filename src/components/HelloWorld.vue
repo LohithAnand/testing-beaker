@@ -1,31 +1,33 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
-    <Accordion>
-      <div slot="toggle">
-        Accordion Title
-      </div>
+    <Accordion
+      :openedTitle="'Hide Code'"
+      :closedTitle="'Show Code'">
       <div slot="content">
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur, architecto, explicabo perferendis nostrum, maxime impedit atque odit sunt pariatur illo obcaecati soluta molestias iure facere dolorum adipisci eum? Saepe, itaque.
       </div>
     </Accordion>
+
+    <Button
+      :variation="'default'">
+      Default
+    </Button>
   </div>
 </template>
 
 <script>
-import Vue from "vue";
-import { Accordion } from "streamlabs-beaker";
-Vue.use(Accordion);
+import { Accordion, Button } from "streamlabs-beaker";
 
 export default {
   name: 'HelloWorld',
   props: {
     msg: String
   },
-
-  mounted() {
-    console.log(Accordion)
-  },
+  components: {
+    Accordion,
+    Button,
+  }
 }
 </script>
 
