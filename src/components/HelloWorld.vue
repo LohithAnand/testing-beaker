@@ -5,36 +5,42 @@
     <Accordion :opened-title="'Close Accordion'" :closed-title="'Open Accordion'">
       <div slot="content">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</div>
     </Accordion>
-    <button-input :variation="'default'" :title="'Button'"></button-input>
+    <ButtonInput :variation="'default'" :title="'Button'"></ButtonInput>
 
     <ProgressBar :progressComplete="progress"></ProgressBar>
 
-    <VirtualItem
-      v-for="(mask, id) in masks"
-      :key="id"
-      :preview="mask.preview"
-      :rarity="mask.rarity"
-      :name="mask.name"
-      :selectionCount="mask.selectionCount"
-      :selected="mask.selected"
-      @click="clickEvent(mask)"
-    ></VirtualItem>
+    <ItemGrid>
+      <VirtualItem
+        v-for="(mask, id) in masks"
+        :key="id"
+        :preview="mask.preview"
+        :rarity="mask.rarity"
+        :name="mask.name"
+        :selectionCount="mask.selectionCount"
+        :selected="mask.selected"
+        @click="clickEvent(mask)"
+      ></VirtualItem>
+    </ItemGrid>
+
     <NewFeatureOverlay
       :label="'Introducing Cloudbot'"
       :title="'Your Favorite Bot is Now Available in the Cloud'"
-      :media="'https://www.youtube.com/embed/dWZNtpNRpG8'"
+      :media="'https://cdn.streamlabs.com/static/imgs/landing/desk_anim.gif'"
+      :buttonTitle="'Go To Chatbot'"
     >
-      <slot>We’ve worked with some of the best developers in the industry to bring you the tools to take your stream to the next level.
-        <br>
-        <br>We’ve automatically credited $15.00 to your account so you can start trying them out today. We’ve automatically credited $15.00 to your account so you can start trying them out today.
-      </slot>
+      <p>We’ve worked with some of the best developers in the industry to bring you the tools to take your stream to the next level.</p>
+      <p>We’ve automatically credited $15.00 to your account so you can start trying them out today. We’ve automatically credited $15.00 to your account so you can start trying them out today.</p>
     </NewFeatureOverlay>
 
-    <Button
+    <ButtonInput
       :variation="'default'"
       :title="'New Feature Overlay'"
       @click="$modal.show('new-feature')"
-    ></Button>
+    ></ButtonInput>
+
+    <ButtonInput :variation="'default'" :title="'loading'" @click="isLoading = true"></ButtonInput>
+
+    <Loading v-if="isLoading" :loadingStrs="array" @closeLoading="isLoading = false"></Loading>
   </div>
 </template>
 
@@ -45,7 +51,8 @@ import {
   ProgressBar,
   ItemGrid,
   VirtualItem,
-  NewFeatureOverlay
+  NewFeatureOverlay,
+  Loading
 } from "streamlabs-beaker";
 
 export default {
@@ -55,11 +62,12 @@ export default {
   },
   components: {
     Accordion,
-    "button-input": Button,
+    ButtonInput: Button,
     ProgressBar,
     VirtualItem,
     ItemGrid,
-    NewFeatureOverlay
+    NewFeatureOverlay,
+    Loading
   },
 
   data() {
@@ -112,6 +120,12 @@ export default {
           name: "Robot",
           rarity: "Common"
         }
+      ],
+      isLoading: false,
+      array: [
+        "Syncing all files to our cloud...",
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+        "Sed do eiusmod tempor incididunt ut labore et dolore magna"
       ]
     };
   },
